@@ -1,0 +1,465 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Book{
+    private:
+    string title;
+    string author;
+    string Isbn;
+    public:
+    void display_details(){
+        cout<<"Title:"<<title<<endl;
+        cout<<"Author:"<<author<<endl;
+        cout<<"Isbn:"<<Isbn<<endl;
+    }
+    void set_details(string a,string b,string c){
+        title=a;
+        author=b;
+        Isbn=c;
+        }
+    };
+int main() {
+    // Creating instances of the Book class
+    Book book1;
+    book1.set_details("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565");
+    Book book2;
+    book2.set_details("To Kill a Mockingbird", "Harper Lee", "9780061120084");
+
+    // Displaying details of book1
+    cout << "Details of Book 1:" << endl;
+    book1.display_details();
+    cout << endl;
+
+    // Displaying details of book2
+    cout << "Details of Book 2:" << endl;
+    book2.display_details();
+
+    return 0;
+}
+
+#include <iostream>
+
+using namespace std;
+
+class BankAccount {
+private:
+    double balance;
+
+public:
+    // Constructor to set initial balance
+    BankAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    // Method to deposit money into the account
+    void deposit(double amount) {
+        balance += amount;
+        cout << "Deposited: $" << amount << endl;
+    }
+
+    // Method to withdraw money from the account
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            cout << "Withdrawn: $" << amount << endl;
+        } else {
+            cout << "Insufficient balance" << endl;
+        }
+    }
+
+    // Method to get the current balance
+    double getBalance() {
+        return balance;
+    }
+};
+int main() {
+    // Creating a BankAccount object with an initial balance of $1000
+    BankAccount account(100000);
+
+    // Deposit $500
+    account.deposit(20);
+
+    // Withdraw $200
+    account.withdraw(200);
+
+    // Withdraw $1500 (attempting to withdraw more than balance)
+    account.withdraw(1300);
+
+    // Display the current balance
+    cout << "Current balance: $" << account.getBalance() << endl;
+
+    return 0;
+}
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+class Student{
+    private:
+    string name;
+    int rollnumber;
+    int marks;
+
+    public:
+    Student(string h,int roll,int mark){
+        name=h;
+        rollnumber=roll;
+        marks=mark;
+    }
+    void display_details(){
+        cout<<"Name of Student: "<<name<<endl;
+        cout<<"Roll-number of Student: "<<rollnumber<<endl;
+        cout<<"Marks of the student: "<<marks<<endl;
+        char grade;
+        if(marks>90){
+            grade='A';
+        }
+        else if(marks>80){
+            grade='B';
+        }
+        else if(marks>70){
+            grade='C';
+        }
+        else{
+            grade='D';
+        }
+        cout<<"Grade of the Student for "<<marks<<" marks is "<<grade<<"."<<endl;
+    }
+    ~Student(){
+
+    };
+};
+int main(){
+    Student s1("Srikanth",45,89);
+    s1.display_details();
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+class complexnumber{
+    private:
+    int real;
+    int imaginary;
+    public:
+    complexnumber(int r,int im){
+        real=r;
+        imaginary=im;
+    }
+    void display_details(){
+        cout<<"The Real part is:"<<real<<endl;
+        cout<<"The Imaginary part is:"<<imaginary<<endl;
+    }
+    void add(int i11,int i12,int i21,int i22){
+        cout<<"The resulting complex number is"<<i11+i12<<"+i"<<i21+i22<<endl;
+
+    }
+    void subtract(int i11,int i12,int i21,int i22){
+        cout<<"The resulting complex number is"<<i11-i12<<"+i"<<i21-i22<<endl;
+    }
+    ~complexnumber(){
+
+    }
+    
+
+};
+int main(){
+    complexnumber c1(3,4);
+    c1.display_details();
+    complexnumber c2(4,5);
+    c2.display_details();
+    c1.add(3,4,4,5);
+    return 0;
+
+}
+
+#include <iostream>
+
+#include <string>
+
+using namespace std;
+
+class BankAccount{
+
+private:
+
+ string accountNumber;
+
+ string accountHolder;
+
+ double balance;
+
+public:
+
+ BankAccount(string num, string holder, double bal) : accountNumber(num), accountHolder(holder), balance(bal) {}
+
+ void deposit(double amount) {
+
+ balance += amount;
+
+ cout <<"Amount deposited. Current Balance:"<< balance <<endl;
+
+ }
+
+ void withdraw(double amount) {
+
+ if (amount > balance) {
+
+ cout <<"Insufficient balance!"<< endl;
+
+ } else {
+
+ balance -= amount;
+
+ cout <<"Amount of rupees "<<amount<<" withdrawn. Current Balance:"<< balance << endl;
+
+ }
+
+ }
+
+ void displayBalance() {
+
+ cout <<"Account Number: "<< accountNumber << ", Holder: " << accountHolder << ", Balance: " <<balance<< endl;
+
+ }
+
+};
+
+int main() {
+
+ BankAccount account("123456789", "Alice", 5000);
+
+ account.displayBalance();
+
+ account.deposit(2000);
+
+ account.withdraw(1000);
+
+ account.withdraw(4000); // This will display an “Insufficient balance!” message.
+
+ return 0;
+
+}
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class Student{
+    private:
+    string name;
+    int roll;
+    int marks[5];
+    public:
+    Student(string h,int r,int m[5]){
+        name=h;
+        roll=r;
+        for(int i=0;i<5;i++){
+            marks[i]=m[i];
+        }
+    }
+    void display_details(){
+        int sum=0;
+        float avg=0;
+        cout<<name<<endl;
+        cout<<roll<<endl;
+        for(int i=0;i<5;i++){
+            sum+=marks[i];
+        }
+        avg=sum/5;
+        cout<<"Average marks is: "<<avg<<endl;
+    }
+    ~Student(){
+
+    }
+};
+int main(){
+    int arr[5]={42,41,32,30,20};
+    Student s1("Srikanth",3,arr);
+    s1.display_details();
+}
+
+
+#include<iostream>
+using namespace std;
+
+class Area {
+  int length;
+  int breadth;
+  int area;
+
+public:
+  Area() {
+    length = 0;
+    breadth = 0;
+    area = 0;
+  }
+
+  Area(int len) {
+    length = len;
+    breadth = 15;
+    area = 0;
+  }
+
+  Area(int len, int brd) {
+    length = len;
+    breadth = brd;
+    area = 0;
+  }
+
+  void calculateArea() {
+    area = length * breadth;
+  }
+
+  void display() {
+    calculateArea();
+    std::cout << "Area is: " << area << std::endl;
+  }
+
+  ~Area() {
+    // Destructor
+  }
+};
+
+int main() {
+    int larr[4];
+    int barr[4];
+    for(int i=0;i<4;i++){
+ int len,bre;
+ cout<<"Enter values:"<<endl;
+ cin>>len;
+ cin>>bre;
+ larr[i]=len;
+ barr[i]=bre;
+ Area a1(larr[i],barr[i]);
+ a1.display();
+    }
+  return 0;
+}
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Stu_Marks {
+protected:
+    string rollNumber;
+    string name;
+    float marks;
+
+public:
+    static int count;
+
+    Stu_Marks(string n, float m) : name(n), marks(m) {
+        rollNumber = "RC_" + to_string(++count);
+    }
+};
+
+int Stu_Marks::count = 0;
+
+class DBMS : public Stu_Marks {
+public:
+    DBMS(string n, float m) : Stu_Marks(n, m) {}
+};
+
+class OS : public Stu_Marks {
+public:
+    OS(string n, float m) : Stu_Marks(n, m) {}
+};
+
+class OOPS : public Stu_Marks {
+public:
+    OOPS(string n, float m) : Stu_Marks(n, m) {}
+};
+
+int main() {
+    int numStudents;
+    cout << "Enter the number of students: ";
+    cin >> numStudents;
+
+    DBMS* dbmsStudents = new DBMS[numStudents];
+    OS* osStudents = new OS[numStudents];
+    OOPS* oopsStudents = new OOPS[numStudents];
+
+    float totalDBMS = 0, totalOS = 0, totalOOPS = 0;
+
+    for (int i = 0; i < numStudents; i++) {
+        string name;
+        float marks;
+
+        cout << "Enter name of student " << i + 1 << ": ";
+        cin >> name;
+
+        cout << "Enter marks in DBMS: ";
+        cin >> marks;
+        dbmsStudents[i] = DBMS(name, marks);
+        totalDBMS += marks;
+
+        cout << "Enter marks in OS: ";
+        cin >> marks;
+        osStudents[i] = OS(name, marks);
+        totalOS += marks;
+
+        cout << "Enter marks in OOPS: ";
+        cin >> marks;
+        oopsStudents[i] = OOPS(name, marks);
+        totalOOPS += marks;
+    }
+
+    float avgDBMS = totalDBMS / numStudents;
+    float avgOS = totalOS / numStudents;
+    float avgOOPS = totalOOPS / numStudents;
+
+    cout << "Average marks in DBMS: " << avgDBMS << endl;
+    cout << "Average marks in OS: " << avgOS << endl;
+    cout << "Average marks in OOPS: " << avgOOPS << endl;
+
+    delete[] dbmsStudents;
+    delete[] osStudents;
+    delete[] oopsStudents;
+
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+class Stu_marks{
+  string roll;
+  string name;
+  int marks;
+};
+
+
+#include<iostream>
+using namespace std;
+class Mammals{
+public:
+void disp(){
+  cout<<"I am mammal"<<endl;
+}
+};
+class Marineanimals{
+public:
+void display(){
+  cout<<"I am a marine animal"<<endl;
+}
+};
+class Bluewhale:public Mammals,public Marineanimals{
+  public:
+  void disp(){
+  cout<<"I belong to both the categories: Mammals as well as Marine Animals"<<endl;
+  }
+};
+
+int main(){
+  // Mammals m1;
+  // m1.disp();
+  // Marineanimals m2;
+  // m2.disp();
+  Bluewhale b1;
+  //b1.disp();
+  b1.display();
+  b1.Mammals::disp();
+  return 0;
+}
+
